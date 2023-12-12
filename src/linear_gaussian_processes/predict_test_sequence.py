@@ -45,7 +45,10 @@ W=3
 M=3
 
 Y,y=data(100,1,0)
-Y_noise,y_noise=data(100,1,0.05)
+
+my_sigma = 0.05
+
+Y_noise,y_noise=data(100,1,my_sigma)
 new_hilbert_space = np.linspace(0,1,98).reshape(-1,1)
 
 plt.figure(figsize=(8,6))
@@ -82,8 +85,8 @@ plt.plot(new_hilbert_space[N_train+M+W-1:], mean_prediction + 1.96 * std_predict
 plt.legend()
 plt.xlabel("$t$")
 plt.ylabel("$f(t)$")
-plt.title("Gaussian process regression")
-plt.savefig("three.png")
+plt.title(f"Gaussian process regression $\\sigma={my_sigma}$")
+plt.savefig("seven.png")
 plt.show()
 plt.cla()
 
@@ -105,5 +108,5 @@ plt.legend()
 plt.xlabel("$t$")
 plt.ylabel("$f(t)$")
 plt.title("Data")
-plt.savefig("four.png")
+plt.savefig("eight.png")
 plt.show()
